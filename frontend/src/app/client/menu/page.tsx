@@ -34,30 +34,32 @@ const mockMenu: Dish[] = [
 
 export default function MenuPage() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Notre Menu 🧾</h1>
+    <div className="max-w-3xl mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold mb-6">Notre Menu 🧾</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="space-y-4">
         {mockMenu.map((dish) => (
           <div
             key={dish.id}
-            className="bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden"
+            className="flex items-center gap-4 p-4 bg-white rounded-lg shadow hover:shadow-md transition"
           >
             <img
               src={dish.image}
               alt={dish.name}
-              className="w-full h-[120px] object-contain bg-gray-100 rounded-t-lg"
+              className="w-[80px] h-[80px] object-cover rounded-md"
             />
-            <div className="p-4">
-              <h2 className="text-lg font-bold">{dish.name}</h2>
+            <div className="flex flex-col flex-1">
+              <h2 className="text-base font-semibold">{dish.name}</h2>
               <p className="text-sm text-gray-500">{dish.description}</p>
-              <p className="mt-2 font-semibold text-green-600">{dish.price} €</p>
-              <button
-                className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg"
-                onClick={() => alert(`Ajouté au panier : ${dish.name}`)}
-              >
-                Ajouter au panier
-              </button>
+              <div className="flex justify-between items-center mt-2">
+                <p className="text-green-600 font-bold">{dish.price} €</p>
+                <button
+                  className="text-sm bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded"
+                  onClick={() => alert(`Ajouté au panier : ${dish.name}`)}
+                >
+                  Ajouter
+                </button>
+              </div>
             </div>
           </div>
         ))}
