@@ -46,7 +46,7 @@ export default function MenuPage() {
             <img
               src={dish.image}
               alt={dish.name}
-              className="w-full h-40 object-cover"
+              className="w-full h-[120px] object-contain bg-gray-100 rounded-t-lg"
             />
             <div className="p-4">
               <h2 className="text-lg font-bold">{dish.name}</h2>
